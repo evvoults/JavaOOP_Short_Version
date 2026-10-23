@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fb">
+  <meta name="description" content="JavaOOP: 16 ενότητες με οπτικά παραδείγματα, κρυπτόλεξα, παζλ, διόρθωση λαθών και 16 νέες αποστολές εφαρμογής σε τέσσερα επίπεδα.">
+  <title>JavaOOP — 16 βήματα</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232f55d4'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='30' fill='white' font-family='monospace'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="challenges.css">
+  <link rel="stylesheet" href="learning-kit.css">
+  <link rel="stylesheet" href="exercise-bank.css">
+  <script src="page-state.js"></script>
+<script defer src="lessons.js"></script>
+  <script defer src="learning-data.js"></script>
+  <script defer src="learning-path.js"></script>
+  <script defer src="illustrations.js"></script>
+  <script defer src="challenges.js"></script>
+  <script defer src="learning-validation.js"></script>
+  <script defer src="learning-kit.js"></script>
+  <script defer src="exercise-bank.js"></script>
+  <script defer src="app.js"></script>
+<link rel="preload" href="fonts/javaoop-sans-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/javaoop-sans-bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="typography.css">
+</head>
+<body>
+  <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="JavaOOP αρχική"><span class="brand-mark">{ }</span><span>Java<strong>OOP</strong></span></a>
+    <div class="header-right"><span class="course-label">Αντικειμενοστρεφής προγραμματισμός</span><a class="guide-link" href="#guide">Πώς δουλεύει</a><button class="icon-button menu-toggle" id="menu-toggle" aria-label="Άνοιγμα μαθημάτων" aria-expanded="false">☰</button></div>
+  </header>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" aria-label="Πλοήγηση μαθημάτων"></aside>
+    <main id="main" tabindex="-1"><div class="initial-load">Φόρτωση μαθημάτων…</div></main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="runner" class="runner-dialog" aria-labelledby="runner-title">
+    <div class="runner-top"><div><span class="eyebrow">ΖΩΝΤΑΝΟ ΕΡΓΑΣΤΗΡΙΟ</span><h2 id="runner-title">Εκτέλεση Java</h2></div><button class="close-button" id="close-runner" aria-label="Κλείσιμο εκτέλεσης">×</button></div>
+    <p class="runner-intro">Άλλαξε τον κώδικα στον editor και πάτησε <strong>Run</strong>. Η Java εκτελείται μέσω OneCompiler.</p>
+    <div class="runner-toolbar"><span id="runner-status" role="status">Φόρτωση editor…</span><div><button class="button small secondary" id="reload-code">Φόρτωση κώδικα ξανά</button><button class="button small secondary" id="copy-runner">Αντιγραφή κώδικα</button><a href="https://onecompiler.com/java" target="_blank" rel="noopener noreferrer" class="text-link">Εναλλακτικός editor ↗</a></div></div>
+    <div id="runner-frame-container"></div>
+    <p class="runner-foot">Αν δεν φορτώσει ο ενσωματωμένος editor, αντέγραψε τον κώδικα και άνοιξε τον εναλλακτικό σύνδεσμο. Κλείσε αυτό το παράθυρο για να επιστρέψεις στο μάθημα.</p>
+  </dialog>
+  <noscript><p class="noscript">Ενεργοποίησε τη JavaScript για να εμφανιστούν τα μαθήματα και οι διαδραστικές δραστηριότητες.</p></noscript>
+</body>
+</html>

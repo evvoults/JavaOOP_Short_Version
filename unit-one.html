@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Κλάση και αντικείμενο · Διαδραστικό εργαστήριο</title>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="challenges.css"><link rel="stylesheet" href="unit.css">
+<script src="page-state.js"></script>
+<script defer src="illustrations.js"></script><script defer src="challenges.js"></script><script defer src="unit.js"></script>
+<link rel="preload" href="fonts/javaoop-sans-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/javaoop-sans-bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="typography.css">
+</head>
+<body class="unit-body">
+<main class="unit-shell">
+<header class="unit-header"><div><span class="unit-kicker">JAVA / ΚΛΑΣΕΙΣ ΚΑΙ ΑΝΤΙΚΕΙΜΕΝΑ</span><h1>Δες το. Άλλαξέ το.<br><em>Γράψε τον κώδικα.</em></h1><p>Μία κλάση, πολλά ξεχωριστά αντικείμενα.<br>Ανακάλυψε τη διαφορά μέσα από εικόνες και μικρές αποστολές.</p></div><a href="#activities" class="unit-jump">Πήγαινε στις ασκήσεις <span>↓</span></a></header>
+<section class="scene-section" aria-labelledby="scene-title"><div class="unit-section-top"><div><span class="unit-kicker">01 / ΠΑΡΑΤΗΡΩ & ΠΕΙΡΑΜΑΤΙΖΟΜΑΙ</span><h2 id="scene-title">Από το σχέδιο στα αντικείμενα</h2></div><div class="scene-tabs" aria-label="Επιλογή παραδείγματος"><button data-example="Car" aria-pressed="true">Αυτοκίνητο</button><button data-example="Book" aria-pressed="false">Βιβλίο</button><button data-example="Robot" aria-pressed="false">Ρομπότ</button></div></div>
+<p class="unit-goal"><strong>Στόχος:</strong> να διακρίνεις την κοινή δομή από τις τιμές κάθε ξεχωριστού αντικειμένου.</p>
+<div id="scene"></div><div class="scene-actions"><button id="change-object" class="button">Άλλαξε το πρώτο αντικείμενο</button><button id="scene-reset" class="button secondary">Επαναφορά</button><span id="scene-result" role="status" aria-live="polite">Παρατήρησε τις δύο εικόνες και τις τιμές τους.</span></div>
+<div class="scene-code"><span>Η αντίστοιχη Java</span><pre><code id="scene-code"></code></pre></div>
+<details class="scene-source"><summary>Δες τον ορισμό της κλάσης και το πλήρες πρόγραμμα</summary><pre><code id="scene-source"></code></pre><button id="run-scene" class="button secondary">Άνοιγμα στον επεξεργαστή Java</button></details>
+</section>
+<section id="activities" class="activities-section" aria-labelledby="activities-title"><div class="unit-section-top"><div><span class="unit-kicker">02 / ΕΞΑΣΚΟΥΜΑΙ ΜΕ ΔΙΑΦΟΡΕΤΙΚΟΥΣ ΤΡΟΠΟΥΣ</span><h2 id="activities-title">Διάλεξε μια μικρή αποστολή</h2></div><span class="unit-count">10 διαφορετικές δραστηριότητες</span></div><p class="activities-intro">Πάτησε μια εικόνα για να ανοίξει η άσκηση ακριβώς από κάτω. Ξεκίνα με τις πρώτες έξι· οι επόμενες συνδέουν τις κλάσεις με μεθόδους και συνεργασία αντικειμένων.</p><div id="activity-gallery" class="activity-gallery"></div></section>
+<section id="activity-stage" class="activity-stage" aria-labelledby="activity-title" tabindex="-1"><div class="stage-heading"><span id="activity-number" class="stage-number"></span><div><span id="activity-type" class="unit-kicker"></span><h2 id="activity-title"></h2></div></div><p id="activity-goal" class="unit-goal"></p><div id="cg-root"></div><div class="stage-nav"><button id="previous-activity" class="button secondary">← Προηγούμενη άσκηση</button><button id="next-activity" class="button">Επόμενη άσκηση →</button></div></section>
+<footer class="unit-footer"><span>Κάθε προσπάθεια δίνει εξήγηση. Μπορείς να δοκιμάσεις ξανά.</span><a href="unit-one-reference.html" target="_blank" rel="noopener">Περισσότερα παραδείγματα κλάσεων ↗</a></footer>
+</main>
+<noscript>Ενεργοποίησε τη JavaScript για τις διαδραστικές δραστηριότητες.</noscript>
+</body></html>

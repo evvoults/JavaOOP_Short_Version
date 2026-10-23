@@ -1,0 +1,74 @@
+/* Local font files include Greek, Greek Extended and combining accents. */
+@font-face {
+  font-family: "JavaOOP Sans";
+  src: url("fonts/javaoop-sans-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JavaOOP Sans";
+  src: url("fonts/javaoop-sans-bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JavaOOP Mono";
+  src: url("fonts/javaoop-mono-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JavaOOP Mono";
+  src: url("fonts/javaoop-mono-bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+:root {
+  --sans: "JavaOOP Sans", "Segoe UI", Arial, sans-serif;
+  --mono: "JavaOOP Mono", Consolas, "Liberation Mono", monospace;
+}
+body,
+.unit-body {
+  font-family: var(--sans);
+}
+button,
+input,
+select {
+  font-family: var(--sans);
+}
+h1,
+h2,
+h3,
+.hero h1,
+.lesson-header h1,
+.ex-bank-heading h1,
+.cg-page-header h1,
+.unit-header h1,
+.unit-section-top h2,
+.stage-heading h2 {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+.eyebrow,
+.nav-title,
+.unit-kicker,
+.task-label {
+  letter-spacing: .035em;
+}
+svg text {
+  font-family: var(--sans);
+}
+svg text[font-family="monospace"],
+svg text[font-family*="Courier"],
+code,
+pre,
+.practice-editor,
+.lk-editor,
+.cg-editor,
+.ex-editor {
+  font-family: var(--mono);
+}

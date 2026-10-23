@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Κλάση και αντικείμενο · Οπτική διαδρομή</title><style>html,body{margin:0;background:#fff;color-scheme:light}#oop-unit-sample{color-scheme:light!important}</style><link rel="preload" href="fonts/javaoop-sans-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/javaoop-sans-bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="typography.css">
+</head><body><script src="page-state.js"></script>
+<script>
+(()=>{const art={
+'graduation-cap':'<path d="m2 9 10-5 10 5-10 5-10-5m4 3v5c4 3 8 3 12 0v-5M22 9v7"/>',
+'car':'<path d="m5 9 2-5h10l2 5M3 10h18v8H3zM7 13h1m8 0h1"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/>',
+'book-open':'<path d="M12 6C8 3 4 3 2 4v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-2-1-6-1-10 2zm0 0v14"/>',
+'user-round':'<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/>',
+'package':'<path d="m3 7 9-5 9 5v11l-9 5-9-5zm0 0 9 5 9-5m-9 5v11M7 5l10 5"/>',
+'bot':'<rect x="4" y="7" width="16" height="13" rx="3"/><path d="M12 7V3m-9 9H1m22 0h-2M8 16h8"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/>',
+'radio':'<circle cx="12" cy="12" r="2"/><path d="M7 7a7 7 0 0 0 0 10m10-10a7 7 0 0 1 0 10M4 4a11 11 0 0 0 0 16M20 4a11 11 0 0 1 0 16"/>',
+'wallet':'<rect x="3" y="5" width="18" height="15" rx="3"/><path d="M3 8V4a2 2 0 0 1 2-2h13m-2 8h5v6h-5z"/>',
+'bed-double':'<path d="M2 20V9h20v11M2 16h20M5 9V5h14v4m-7-4v4"/>',
+'ticket':'<path d="M3 4h18v5a3 3 0 0 0 0 6v5H3v-5a3 3 0 0 0 0-6zm12 0v3m0 3v4m0 3v3"/>',
+'clapperboard':'<path d="M3 8h18v13H3zM3 8V3h18v5M7 3l3 5m4-5 3 5"/>',
+'arrow-right':'<path d="M4 12h16m-6-6 6 6-6 6"/>','arrow-left':'<path d="M20 12H4m6-6-6 6 6 6"/>',
+'target':'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>','plus':'<path d="M12 4v16M4 12h16"/>'};window.courseIcons={createIcons(){document.querySelectorAll('[data-course-icon]').forEach(el=>{const s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('width','18');s.setAttribute('height','18');s.setAttribute('fill','none');s.setAttribute('stroke','currentColor');s.setAttribute('stroke-width','1.6');s.setAttribute('stroke-linecap','round');s.setAttribute('stroke-linejoin','round');s.setAttribute('aria-hidden','true');s.innerHTML=art[el.dataset.courseIcon]||art.package;el.replaceWith(s)})}}})();
+</script><div id="oop-unit-sample" lang="el">
+  <header class="ou-header">
+    <div class="ou-eyebrow"><i data-course-icon="graduation-cap" aria-hidden="true"></i> JAVA · ΕΡΓΑΣΤΗΡΙΑΚΗ ΕΝΟΤΗΤΑ 01</div>
+    <h1>Κλάση και αντικείμενο</h1>
+    <p>Παρατηρώ · προβλέπω · δοκιμάζω · γράφω κώδικα</p>
+    <div class="ou-progress-label"><span>Η διαδρομή σου</span><span id="ou-progress-text">0 / 20 δραστηριότητες</span></div>
+    <div id="ou-progress" class="ou-track" role="progressbar" aria-label="Ολοκληρωμένες δραστηριότητες" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0"><div id="ou-progress-fill"></div></div>
+  </header>
+  <div class="ou-layout">
+    <nav class="ou-sidebar" aria-label="Βήματα της ενότητας"><div class="ou-nav-title">Η διαδρομή μάθησης</div><div id="ou-nav"></div></nav>
+    <main class="ou-main">
+      <div class="ou-context"><span id="ou-step-label"></span><span id="ou-example-label"></span></div>
+      <h2 id="ou-title"></h2>
+      <div class="ou-goal"><i data-course-icon="target" aria-hidden="true"></i><div><span class="ou-small">Μαθησιακός στόχος</span><div id="ou-goal-text"></div></div></div>
+      <div id="ou-content"></div>
+      <div id="ou-feedback" hidden></div>
+      <div class="ou-example-nav"><span id="ou-case-status"></span><button id="ou-next-example" type="button" class="ou-button ou-secondary cursor-interaction">Άλλο παράδειγμα <i data-course-icon="arrow-right" aria-hidden="true"></i></button></div>
+      <footer class="ou-footer"><button id="ou-prev" type="button" class="ou-button ou-quiet cursor-interaction"><i data-course-icon="arrow-left" aria-hidden="true"></i> Προηγούμενο βήμα</button><button id="ou-next" type="button" class="ou-button ou-primary cursor-interaction">Επόμενο βήμα <i data-course-icon="arrow-right" aria-hidden="true"></i></button></footer>
+    </main>
+  </div>
+</div>
+<style>
+#oop-unit-sample{--ou-paper:light-dark(#fff,#151b26);--ou-ink:light-dark(#18273e,#e7edf7);--ou-soft:light-dark(#f3f6fb,#1d2635);--ou-line:light-dark(#dce4ef,#38465d);--ou-muted:light-dark(#53657b,#aebdd0);--ou-accent:light-dark(#215fc1,#9ec2ff);--ou-accent-bg:light-dark(#eaf2ff,#203957);--ou-accent-on:light-dark(#fff,#15233a);--ou-good:light-dark(#12634d,#a0dbc7);--ou-good-bg:light-dark(#ecf8f2,#19372f);--ou-error:light-dark(#a12635,#ffb7bd);--ou-error-bg:light-dark(#fff0f1,#40262d);color:var(--ou-ink);background:var(--ou-paper);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.55;width:100%;isolation:isolate;color-scheme:light dark}
+#oop-unit-sample *{box-sizing:border-box}
+#oop-unit-sample [hidden]{display:none!important}
+#oop-unit-sample h1,#oop-unit-sample h2,#oop-unit-sample h3,#oop-unit-sample h4,#oop-unit-sample p{margin:0;color:var(--ou-ink);font-weight:400}
+#oop-unit-sample h1{font-size:clamp(25px,4vw,34px);font-weight:500;line-height:1.2;margin:10px 0}
+#oop-unit-sample h2{font-size:23px;font-weight:500;line-height:1.3;margin:10px 0 18px}
+#oop-unit-sample h3{font-size:17px;font-weight:500;margin:0 0 12px}
+#oop-unit-sample strong{font-weight:500}
+#oop-unit-sample button,#oop-unit-sample input,#oop-unit-sample select,#oop-unit-sample textarea{font:inherit}
+#oop-unit-sample button:focus-visible,#oop-unit-sample input:focus-visible,#oop-unit-sample select:focus-visible,#oop-unit-sample textarea:focus-visible,#oop-unit-sample summary:focus-visible{outline:3px solid var(--ou-accent);outline-offset:3px}
+#oop-unit-sample .ou-header{padding:26px 28px 23px;background:linear-gradient(120deg,var(--ou-accent-bg),var(--ou-paper));border-bottom:1px solid var(--ou-line)}
+#oop-unit-sample .ou-eyebrow{display:flex;align-items:center;gap:8px;color:var(--ou-accent);font-size:12px;letter-spacing:.05em;font-weight:500}
+#oop-unit-sample .ou-header p{color:var(--ou-muted);font-size:14px}
+#oop-unit-sample .ou-progress-label{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--ou-muted);margin:20px 0 8px}
+#oop-unit-sample .ou-track{height:5px;background:var(--ou-line);border-radius:10px;overflow:hidden}
+#oop-unit-sample #ou-progress-fill{height:100%;width:0;background:var(--ou-accent);transition:width .25s}
+#oop-unit-sample .ou-layout{display:grid;grid-template-columns:190px minmax(0,1fr)}
+#oop-unit-sample .ou-sidebar{padding:21px 12px;background:var(--ou-soft);border-right:1px solid var(--ou-line)}
+#oop-unit-sample .ou-nav-title{font-size:12px;color:var(--ou-muted);padding:0 9px 13px}
+#oop-unit-sample .ou-nav-button{display:grid;grid-template-columns:25px 1fr auto;align-items:center;text-align:left;width:100%;padding:10px 8px;gap:7px;border:0;border-radius:8px;background:transparent;color:var(--ou-ink);font-size:13px;line-height:1.35;margin:3px 0;min-height:47px}
+#oop-unit-sample .ou-nav-button[aria-current="step"]{background:var(--ou-accent-bg);color:var(--ou-accent)}
+#oop-unit-sample .ou-nav-number{display:grid;place-items:center;width:24px;height:24px;border:1px solid var(--ou-line);border-radius:50%;font-size:12px;background:var(--ou-paper)}
+#oop-unit-sample .ou-nav-button.ou-complete .ou-nav-number{background:var(--ou-good-bg);color:var(--ou-good);border-color:transparent}
+#oop-unit-sample .ou-nav-count{font-size:11px;color:var(--ou-muted)}
+#oop-unit-sample .ou-main{padding:25px;min-width:0}
+#oop-unit-sample .ou-context{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--ou-muted);font-size:12px}
+#oop-unit-sample .ou-goal{display:flex;align-items:flex-start;gap:10px;border-left:3px solid var(--ou-accent);padding:11px 13px;background:var(--ou-accent-bg);margin-bottom:22px;font-size:14px}
+#oop-unit-sample .ou-goal>svg{flex-shrink:0;margin-top:4px;color:var(--ou-accent)}
+#oop-unit-sample .ou-small{display:block;font-size:12px;color:var(--ou-muted);margin-bottom:3px}
+#oop-unit-sample .ou-instruction{font-size:14px;margin:0 0 17px;max-width:68ch}
+#oop-unit-sample .ou-note{color:var(--ou-muted);font-size:12px;margin:12px 0}
+#oop-unit-sample .ou-definitions{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+#oop-unit-sample .ou-definition{padding:13px 15px;background:var(--ou-soft);border-radius:8px;font-size:14px}
+#oop-unit-sample .ou-definition strong{display:block;color:var(--ou-accent);margin-bottom:5px}
+#oop-unit-sample .ou-scene{display:grid;grid-template-columns:minmax(150px,.85fr) minmax(0,1.5fr);gap:17px;align-items:start;margin:17px 0}
+#oop-unit-sample .ou-scene-label{color:var(--ou-muted);font-size:12px;margin-bottom:7px}
+#oop-unit-sample .ou-template,#oop-unit-sample .ou-object{border:1px solid var(--ou-line);border-radius:10px;background:var(--ou-paper);min-width:0;overflow-wrap:anywhere}
+#oop-unit-sample .ou-template{background:var(--ou-accent-bg)}
+#oop-unit-sample .ou-record-head{display:flex;gap:10px;align-items:center;padding:12px 13px;border-bottom:1px solid var(--ou-line)}
+#oop-unit-sample .ou-glyph{display:grid;place-items:center;border-radius:8px;width:39px;height:39px;background:var(--ou-soft);color:var(--ou-accent);flex-shrink:0}
+#oop-unit-sample .ou-glyph svg{width:25px;height:25px}
+#oop-unit-sample .ou-record-title{font-size:15px;font-weight:500}
+#oop-unit-sample .ou-record-kind{font-size:11px;color:var(--ou-muted)}
+#oop-unit-sample .ou-record-fields{padding:11px 13px;display:grid;gap:10px}
+#oop-unit-sample .ou-field{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;min-width:0}
+#oop-unit-sample .ou-field span:first-child{color:var(--ou-muted);overflow-wrap:anywhere}
+#oop-unit-sample .ou-field code{font-size:12px;white-space:normal;overflow-wrap:anywhere}
+#oop-unit-sample .ou-field small{font-size:11px}
+#oop-unit-sample .ou-value{font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+#oop-unit-sample .ou-object-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;align-items:start}
+#oop-unit-sample .ou-object-list.ou-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+#oop-unit-sample .ou-object-list .ou-record-head{display:block}
+#oop-unit-sample .ou-object-list .ou-glyph{margin-bottom:7px}
+#oop-unit-sample .ou-object-list .ou-field{display:block}
+#oop-unit-sample .ou-object-list .ou-value{display:block;text-align:left;margin-top:2px}
+#oop-unit-sample .ou-empty{grid-column:1/-1;padding:27px 13px;color:var(--ou-muted);font-size:14px;min-height:156px;display:grid;align-content:center;text-align:center;border:1px dashed var(--ou-line);border-radius:9px}
+#oop-unit-sample .ou-metric{font-size:14px;color:var(--ou-accent);font-weight:500;margin:15px 0}
+#oop-unit-sample .ou-controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:16px}
+#oop-unit-sample .ou-button{display:inline-flex;gap:7px;align-items:center;justify-content:center;padding:10px 14px;min-height:44px;border:1px solid var(--ou-line);border-radius:7px;background:var(--ou-paper);color:var(--ou-ink);font-size:13px;max-width:100%;white-space:normal;text-align:center}
+#oop-unit-sample .ou-button svg{width:16px;height:16px;flex-shrink:0}
+#oop-unit-sample .ou-primary{background:var(--ou-accent);color:var(--ou-accent-on);border-color:transparent}
+#oop-unit-sample .ou-secondary{background:var(--ou-soft)}
+#oop-unit-sample .ou-quiet{background:transparent}
+#oop-unit-sample button:disabled{opacity:.5;cursor:not-allowed}
+#oop-unit-sample .ou-options{display:grid;gap:9px;margin:15px 0}
+#oop-unit-sample .ou-option{justify-content:flex-start;text-align:left;padding:12px 14px;font-size:14px;width:100%}
+#oop-unit-sample .ou-option[aria-pressed="true"],#oop-unit-sample .ou-choice[aria-pressed="true"]{background:var(--ou-accent);color:var(--ou-accent-on);border-color:transparent}
+#oop-unit-sample .ou-choices{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}
+#oop-unit-sample .ou-choice{min-width:75px}
+#oop-unit-sample .ou-choice code{color:inherit}
+#oop-unit-sample pre{background:var(--ou-soft);color:var(--ou-ink);padding:15px;border-radius:8px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:13px 0;max-width:100%}
+#oop-unit-sample code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:inherit}
+#oop-unit-sample .ou-code-key{color:var(--ou-accent);font-weight:500}
+#oop-unit-sample .ou-code-options pre{margin:0;background:transparent;padding:0;text-align:left}
+#oop-unit-sample label.ou-input-label{display:block;font-size:13px;margin:15px 0 6px;font-weight:500}
+#oop-unit-sample .ou-input,#oop-unit-sample .ou-select,#oop-unit-sample .ou-editor{background:var(--ou-paper);color:var(--ou-ink);border:1px solid var(--ou-line);border-radius:6px;padding:10px 12px;font-size:15px;max-width:100%;min-height:44px}
+#oop-unit-sample .ou-input{width:170px}
+#oop-unit-sample .ou-select{width:100%}
+#oop-unit-sample .ou-editor{width:100%;resize:vertical;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.65;tab-size:4;min-height:115px;display:block}
+#oop-unit-sample .ou-code-input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+#oop-unit-sample .ou-numeric{font-variant-numeric:tabular-nums}
+#oop-unit-sample .ou-sort-tray{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+#oop-unit-sample .ou-sort-item{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:5px;min-height:110px}
+#oop-unit-sample .ou-sort-item[aria-pressed="true"]{outline:2px solid var(--ou-accent);outline-offset:2px}
+#oop-unit-sample .ou-sort-title{font-weight:500;font-size:14px;overflow-wrap:anywhere}
+#oop-unit-sample .ou-sort-detail{font-size:12px;color:var(--ou-muted);overflow-wrap:anywhere}
+#oop-unit-sample .ou-sort-zones{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#oop-unit-sample .ou-sort-zone{display:block;text-align:left;padding:14px;min-height:110px;background:var(--ou-soft);border-style:dashed}
+#oop-unit-sample .ou-sort-zone strong{display:block;font-weight:500;color:var(--ou-accent);margin-bottom:9px}
+#oop-unit-sample .ou-sort-chip{display:block;font-size:12px;background:var(--ou-paper);padding:4px 7px;border-radius:4px;margin-top:5px;overflow-wrap:anywhere}
+#oop-unit-sample .ou-sort-zone.ou-drop-active{outline:2px solid var(--ou-accent)}
+#oop-unit-sample #ou-feedback{margin-top:19px;padding:13px 15px;border-radius:8px;font-size:14px;background:var(--ou-soft);color:var(--ou-ink)}
+#oop-unit-sample #ou-feedback.ou-success{background:var(--ou-good-bg);color:var(--ou-good)}
+#oop-unit-sample #ou-feedback.ou-error{background:var(--ou-error-bg);color:var(--ou-error)}
+#oop-unit-sample .ou-example-nav{border-top:1px solid var(--ou-line);margin-top:24px;padding-top:17px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#oop-unit-sample #ou-case-status{font-size:12px;color:var(--ou-muted)}
+#oop-unit-sample .ou-footer{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;margin-top:20px}
+#oop-unit-sample .ou-changed{background:var(--ou-good-bg);color:var(--ou-good);padding:1px 5px;border-radius:3px}
+#oop-unit-sample details{font-size:13px;margin:15px 0;color:var(--ou-muted)}
+#oop-unit-sample summary{color:var(--ou-accent);padding:6px 0}
+#oop-unit-sample .ou-editor-result{margin-top:15px}
+#oop-unit-sample .ou-input-row{display:flex;gap:12px;flex-wrap:wrap;align-items:end}
+#oop-unit-sample .ou-input-row label{flex:1;min-width:125px}
+#oop-unit-sample .ou-input-row input{width:100%}
+#oop-unit-sample .ou-completion{font-size:14px;color:var(--ou-good);padding:12px 0}
+#oop-unit-sample .ou-inline-icon{display:inline-flex;vertical-align:middle;margin-right:4px}
+@media(max-width:760px){#oop-unit-sample .ou-layout{grid-template-columns:1fr}#oop-unit-sample .ou-sidebar{padding:12px 15px;border-right:0;border-bottom:1px solid var(--ou-line)}#oop-unit-sample .ou-nav-title{padding-bottom:7px}#oop-unit-sample #ou-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}#oop-unit-sample .ou-nav-button{display:flex;justify-content:center;flex-direction:column;gap:5px;padding:8px 3px;font-size:11px;margin:0}#oop-unit-sample .ou-nav-count{display:none}#oop-unit-sample .ou-nav-text{font-size:11px;line-height:1.3;text-align:center;overflow-wrap:anywhere}#oop-unit-sample .ou-main{padding:20px}#oop-unit-sample .ou-header{padding:22px 20px}}
+@media(max-width:480px){#oop-unit-sample .ou-header{padding:20px 15px}#oop-unit-sample .ou-main{padding:18px 15px}#oop-unit-sample h2{font-size:20px}#oop-unit-sample .ou-scene,#oop-unit-sample .ou-definitions{grid-template-columns:1fr}#oop-unit-sample .ou-object-list.ou-three{grid-template-columns:1fr}#oop-unit-sample .ou-sort-tray{grid-template-columns:1fr}#oop-unit-sample .ou-sort-item{min-height:0}#oop-unit-sample .ou-sort-zones{grid-template-columns:1fr}#oop-unit-sample .ou-footer .ou-button{flex:1}#oop-unit-sample .ou-eyebrow{font-size:11px}#oop-unit-sample .ou-code-line{display:grid;gap:10px}#oop-unit-sample .ou-input-row{display:grid;grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#oop-unit-sample *{transition:none!important;animation:none!important}}
+@media(pointer:coarse){#oop-unit-sample .ou-input,#oop-unit-sample .ou-select,#oop-unit-sample .ou-editor{font-size:16px}}
+</style>
+<script>
+(()=>{
+  'use strict';
+  const root=document.getElementById('oop-unit-sample');
+  const q=s=>root.querySelector(s);
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const icon=n=>`<i data-course-icon="${n}" aria-hidden="true"></i>`;
+  const button=(action,label,primary=false,extra='')=>`<button type="button" data-action="${action}" class="ou-button ${primary?'ou-primary':'ou-secondary'} cursor-interaction" ${extra}>${label}</button>`;
+  const domains={
+    Car:{label:'Αυτοκίνητο',icon:'car',fields:[['model','String','Μοντέλο'],['year','int','Έτος']],objects:[['City',2023],['Tour',2025],['Mini',2024]]},
+    Book:{label:'Βιβλίο',icon:'book-open',fields:[['title','String','Τίτλος'],['pages','int','Σελίδες']],objects:[['Java',240],['Αλγόριθμοι',350],['Δίκτυα',280]]},
+    Student:{label:'Φοιτητής',icon:'user-round',fields:[['name','String','Όνομα'],['semester','int','Εξάμηνο']],objects:[['Άννα',1],['Νίκος',3],['Ελένη',2]]},
+    Product:{label:'Προϊόν',icon:'package',fields:[['name','String','Όνομα'],['price','double','Τιμή']],objects:[['Τετράδιο',4.5],['Ποντίκι',19.9],['Πληκτρολόγιο',35]]},
+    Robot:{label:'Ρομπότ',icon:'bot',fields:[['name','String','Όνομα'],['energy','int','Ενέργεια']],objects:[['R1',80],['R2',60],['R3',90]]},
+    Sensor:{label:'Αισθητήρας',icon:'radio',fields:[['name','String','Όνομα'],['value','double','Μέτρηση']],objects:[['S1',22.5],['S2',24],['S3',21.8]]},
+    Course:{label:'Μάθημα',icon:'graduation-cap',fields:[['title','String','Τίτλος'],['credits','int','Μονάδες']],objects:[['Java',5],['Δίκτυα',6],['Αλγόριθμοι',5]]},
+    BankAccount:{label:'Λογαριασμός',icon:'wallet',fields:[['owner','String','Κάτοχος'],['balance','double','Υπόλοιπο']],objects:[['Άννα',100],['Νίκος',200],['Ελένη',300]],change:150},
+    HotelRoom:{label:'Δωμάτιο',icon:'bed-double',fields:[['number','int','Αριθμός'],['price','double','Τιμή']],objects:[[101,80],[102,120],[103,100]],change:90},
+    Ticket:{label:'Εισιτήριο',icon:'ticket',fields:[['destination','String','Προορισμός'],['price','double','Τιμή']],objects:[['Καβάλα',15],['Δράμα',10],['Ξάνθη',18]]},
+    Movie:{label:'Ταινία',icon:'clapperboard',fields:[['title','String','Τίτλος'],['duration','int','Διάρκεια']],objects:[['Orion',95],['Horizon',110],['Atlas',100]]}
+  };
+  const steps=[
+    {short:'Αποστολή',title:'Η ίδια κατηγορία, διαφορετικά αντικείμενα',goal:'Να συνδέεις ένα κοινό πρότυπο με συγκεκριμένα αντικείμενα.',kind:'intro',examples:['Car','Book']},
+    {short:'Παρατήρηση',title:'Παρατήρησε τι μένει ίδιο και τι αλλάζει',goal:'Να ξεχωρίζεις την κοινή δομή από τις διαφορετικές τιμές.',kind:'observe',examples:['Student','Car']},
+    {short:'Κοινά πεδία',title:'Βρες τα κοινά χαρακτηριστικά',goal:'Να διακρίνεις τα ονόματα των πεδίων από τις τιμές τους.',kind:'fields',examples:['Book','Product']},
+    {short:'Πρότυπο',title:'Σχημάτισε την κλάση ως πρότυπο',goal:'Να περιγράφεις ποια πεδία θα έχουν όλα τα αντικείμενα της κλάσης.',kind:'schema',examples:['Product','Sensor']},
+    {short:'Αναγνώριση',title:'Κλάση ή συγκεκριμένο αντικείμενο;',goal:'Να ταξινομείς σωστά το πρότυπο και τα στιγμιότυπά του.',kind:'sort',examples:['Robot','Course']},
+    {short:'Δημιουργία',title:'Μία κλάση, πολλά αντικείμενα',goal:'Να δημιουργείς ξεχωριστά αντικείμενα από την ίδια κλάση.',kind:'create',examples:['Student','Robot']},
+    {short:'Πρόβλεψη',title:'Αλλάζει το ένα. Τι συμβαίνει στο άλλο;',goal:'Να αναγνωρίζεις ότι δύο ξεχωριστά αντικείμενα έχουν δικές τους τιμές.',kind:'predict',examples:['BankAccount','HotelRoom']},
+    {short:'Εικόνα ↔ κώδικας',title:'Σύνδεσε την εικόνα με τη Java',goal:'Να χρησιμοποιείς τη new για τη δημιουργία αντικειμένου.',kind:'codefill',examples:['Car','Ticket']},
+    {short:'Γράφω κώδικα',title:'Κατασκεύασε το δικό σου παράδειγμα',goal:'Να γράφεις μια απλή κλάση και να δημιουργείς δύο αντικείμενά της.',kind:'editor',examples:['Book','Product']},
+    {short:'Αυτοέλεγχος',title:'Εφάρμοσε τη διάκριση σε νέο παράδειγμα',goal:'Να ξεχωρίζεις τον ορισμό μιας κλάσης από τη δημιουργία αντικειμένων.',kind:'review',examples:['Movie','Sensor']}
+  ];
+  const saved=window.JavaOOPPageState.get('reference-unit',{states:new Map(),complete:new Set(),stepIndex:0,exampleIndex:0});
+  window.JavaOOPPageState.set('reference-unit',saved);
+  let stepIndex=saved.stepIndex,exampleIndex=saved.exampleIndex;
+  const states=saved.states,complete=saved.complete;
+  function persist(){saved.stepIndex=stepIndex;saved.exampleIndex=exampleIndex;window.JavaOOPPageState.set('reference-unit',saved);}
+  const key=()=>`${stepIndex}-${exampleIndex}`;
+  const cur=()=>steps[stepIndex];
+  const name=()=>cur().examples[exampleIndex];
+  const state=()=>{if(!states.has(key()))states.set(key(),{selected:[],assignments:{},created:0,choice:null,feedback:null});return states.get(key());};
+  const fmt=(value,type)=>type==='String'?`"${value}"`:String(value);
+  const glyph=n=>`<div class="ou-glyph">${icon(domains[n].icon)}</div>`;
+  function template(n,showCode=false){const d=domains[n];return `<div class="ou-template"><div class="ou-record-head">${glyph(n)}<div><div class="ou-record-title">${showCode?'class ':''}${n}</div><div class="ou-record-kind">Κλάση · κοινό πρότυπο</div></div></div><div class="ou-record-fields">${d.fields.map(f=>`<div class="ou-field"><span>${esc(f[0])}</span><code>${f[1]}</code></div>`).join('')}</div></div>`;}
+  function object(n,values,index,changed=-1){const d=domains[n];return `<div class="ou-object"><div class="ou-record-head">${glyph(n)}<div><div class="ou-record-title">Αντικείμενο ${index+1}</div><div class="ou-record-kind">της κλάσης ${n}</div></div></div><div class="ou-record-fields">${d.fields.map((f,i)=>`<div class="ou-field"><span>${esc(f[0])} <small>(${esc(f[2])})</small></span><span class="ou-value ${changed===i?'ou-changed':''}">${esc(values[i])}</span></div>`).join('')}</div></div>`;}
+  function scene(n,values=domains[n].objects.slice(0,2),showTemplate=true,changed=false){return `<div class="ou-scene">${showTemplate?`<div><div class="ou-scene-label">Το κοινό πρότυπο</div>${template(n)}</div>`:''}<div ${!showTemplate?'style="grid-column:1/-1"':''}><div class="ou-scene-label">Συγκεκριμένα αντικείμενα</div><div class="ou-object-list ${values.length===3?'ou-three':''}">${values.length?values.map((v,i)=>object(n,v,i,changed&&i===0?1:-1)).join(''):'<div class="ou-empty">Δεν έχει δημιουργηθεί ακόμη αντικείμενο.</div>'}</div></div></div>`;}
+  const codeClass=n=>`class ${n} {\n${domains[n].fields.map(f=>`    ${f[1]} ${f[0]};`).join('\n')}\n}`;
+  function updateNav(){
+    q('#ou-nav').innerHTML=steps.map((s,i)=>{const count=s.examples.filter((_,j)=>complete.has(`${i}-${j}`)).length;return `<button type="button" class="ou-nav-button cursor-interaction ${count===2?'ou-complete':''}" data-step="${i}" ${i===stepIndex?'aria-current="step"':''} aria-label="Βήμα ${i+1}: ${esc(s.short)}. Ολοκληρωμένα ${count} από 2"><span class="ou-nav-number">${count===2?'✓':i+1}</span><span class="ou-nav-text">${s.short}</span><span class="ou-nav-count">${count}/2</span></button>`;}).join('');
+    q('#ou-progress-text').textContent=`${complete.size} / 20 δραστηριότητες`;
+    q('#ou-progress').setAttribute('aria-valuenow',complete.size);
+    q('#ou-progress-fill').style.width=`${complete.size*5}%`;
+    q('#ou-case-status').textContent=complete.has(key())?'✓ Ολοκληρώθηκε αυτό το παράδειγμα':'Μπορείς να δοκιμάσεις ξανά και να αλλάξεις βήμα.';
+  }
+  function feedback(ok,text,mark=true){state().feedback={ok,text};if(ok&&mark)complete.add(key());showFeedback();updateNav();}
+  function showFeedback(){const el=q('#ou-feedback'),f=state().feedback;el.hidden=!f;if(f){el.className=f.ok===true?'ou-success':f.ok===false?'ou-error':'';el.setAttribute('role',f.ok===false?'alert':'status');el.setAttribute('aria-live','polite');el.textContent=(f.ok===true?'✓ ':f.ok===false?'↻ ':'Βοήθεια: ')+f.text;}}
+  function refreshIcons(){if(globalThis.courseIcons&&typeof globalThis.courseIcons.createIcons==='function')globalThis.courseIcons.createIcons({attrs:{width:18,height:18}});}
+  function render(){
+    const s=cur(),n=name(),d=domains[n],st=state();
+    q('#ou-step-label').textContent=`Βήμα ${stepIndex+1} / 10`;
+    q('#ou-example-label').textContent=`Παράδειγμα ${exampleIndex+1} / 2 · ${n}`;
+    q('#ou-title').textContent=s.title;q('#ou-goal-text').textContent=s.goal;
+    q('#ou-prev').disabled=stepIndex===0;
+    q('#ou-next').disabled=stepIndex===9;
+    let html='';
+    if(s.kind==='intro'){
+      html=`<p class="ou-instruction">Αποστολή: περιέγραψε ψηφιακά διαφορετικά ${n==='Car'?'αυτοκίνητα':'βιβλία'}. Παρατήρησε το κοινό πρότυπο και τα δύο συγκεκριμένα παραδείγματα.</p><div class="ou-definitions"><div class="ou-definition"><strong>Κλάση</strong>Περιγράφει την κοινή δομή και τις διαθέσιμες λειτουργίες των αντικειμένων ενός τύπου.</div><div class="ou-definition"><strong>Αντικείμενο ή στιγμιότυπο</strong>Μια συγκεκριμένη παρουσία της κλάσης, με δικές της τιμές.</div></div>${scene(n)}<p class="ou-note">Στην πρώτη ενότητα παρατηρούμε κυρίως τα πεδία: τα στοιχεία που αποθηκεύει κάθε αντικείμενο.</p><div class="ou-controls">${button('intro-done',`Αναγνώρισα το πρότυπο ${n}`,true)}</div>`;
+    }else if(s.kind==='observe'){
+      html=`<p class="ou-instruction">Σύγκρινε τα δύο αντικείμενα. Ποια περιγραφή ταιριάζει στην εικόνα;</p>${scene(n,d.objects.slice(0,2),false)}<div class="ou-options">${['Έχουν τα ίδια πεδία, με διαφορετικές τιμές.','Είναι διαφορετικές κλάσεις επειδή διαφέρουν οι τιμές.','Μοιράζονται υποχρεωτικά τις ίδιες τιμές.'].map((v,i)=>`<button type="button" data-action="observe" data-value="${i}" class="ou-button ou-option cursor-interaction" aria-pressed="${st.choice===i}">${esc(v)}</button>`).join('')}</div>`;
+    }else if(s.kind==='fields'){
+      const vals=[d.fields[0][0],fmt(d.objects[0][0],d.fields[0][1]),d.fields[1][0],fmt(d.objects[0][1],d.fields[1][1])];
+      html=`<p class="ou-instruction">Επίλεξε τα <strong>δύο ονόματα πεδίων</strong> που υπάρχουν και στα δύο αντικείμενα.</p>${scene(n,d.objects.slice(0,2),false)}<div class="ou-choices">${vals.map(v=>`<button type="button" data-action="field-toggle" data-value="${esc(v)}" class="ou-button ou-choice cursor-interaction" aria-pressed="${st.selected.includes(v)}"><code>${esc(v)}</code></button>`).join('')}</div><div class="ou-controls">${button('fields-check','Έλεγχος επιλογής',true)}</div>`;
+    }else if(s.kind==='schema'){
+      html=`<p class="ou-instruction">Το πρότυπο ${n} θα έχει τα πεδία <code>${d.fields[0][0]}</code> και <code>${d.fields[1][0]}</code>. Διάλεξε τις δηλώσεις τους, χωρίς συγκεκριμένες τιμές.</p>${template(n,true)}<label class="ou-input-label" for="ou-field-one">Πρώτο πεδίο</label><select id="ou-field-one" class="ou-select" data-store="fieldOne"><option value="">Επίλεξε δήλωση</option>${[`${d.fields[0][1]} ${d.fields[0][0]};`,`${d.fields[0][1]} ${d.fields[0][0]} = ${fmt(d.objects[0][0],d.fields[0][1])};`].map(v=>`<option value="${esc(v)}" ${st.fieldOne===v?'selected':''}>${esc(v)}</option>`).join('')}</select><label class="ou-input-label" for="ou-field-two">Δεύτερο πεδίο</label><select id="ou-field-two" class="ou-select" data-store="fieldTwo"><option value="">Επίλεξε δήλωση</option>${[`${d.fields[1][1]} ${d.fields[1][0]} = ${fmt(d.objects[0][1],d.fields[1][1])};`,`${d.fields[1][1]} ${d.fields[1][0]};`].map(v=>`<option value="${esc(v)}" ${st.fieldTwo===v?'selected':''}>${esc(v)}</option>`).join('')}</select><p class="ou-note">String: κείμενο · int: ακέραιος · double: δεκαδικός αριθμός. Τιμές μπορούν να οριστούν και μέσα στην κλάση· εδώ ζητείται ένα απλό πρότυπο χωρίς αρχικές τιμές.</p><div class="ou-controls">${button('schema-check','Έλεγχος προτύπου',true)}</div>`;
+    }else if(s.kind==='sort'){
+      const items=[{id:'template',label:n,detail:'Κοινό πρότυπο',target:'class'},{id:'first',label:String(d.objects[0][0]),detail:`${d.fields[1][0]} = ${d.objects[0][1]}`,target:'object'},{id:'second',label:String(d.objects[1][0]),detail:`${d.fields[1][0]} = ${d.objects[1][1]}`,target:'object'}];
+      html=`<p class="ou-instruction">Επίλεξε μια κάρτα και έπειτα την κατηγορία της. Μπορείς επίσης να τη σύρεις στην κατάλληλη θέση.</p><div class="ou-sort-tray">${items.map(it=>`<button type="button" draggable="true" data-drag="${it.id}" data-action="sort-select" data-value="${it.id}" class="ou-button ou-sort-item cursor-interaction" aria-pressed="${st.active===it.id}">${glyph(n)}<span class="ou-sort-title">${esc(it.label)}</span><span class="ou-sort-detail">${esc(it.detail)}</span><span class="ou-sort-detail">${st.assignments[it.id]?(st.assignments[it.id]==='class'?'Στην κλάση':'Στα αντικείμενα'):'Προς ταξινόμηση'}</span></button>`).join('')}</div><div class="ou-sort-zones">${[['class','Κλάση'],['object','Αντικείμενο']].map(([v,label])=>`<button type="button" data-action="sort-drop" data-zone="${v}" data-value="${v}" class="ou-button ou-sort-zone cursor-interaction" aria-label="Τοποθέτηση στην κατηγορία ${label}"><strong>${label}</strong>${items.filter(it=>st.assignments[it.id]===v).map(it=>`<span class="ou-sort-chip">${esc(it.label)}</span>`).join('')||'<span class="ou-sort-detail">Τοποθέτησε εδώ τις κάρτες</span>'}</button>`).join('')}</div><div class="ou-controls">${button('sort-check','Έλεγχος ταξινόμησης',true)}</div>`;
+    }else if(s.kind==='create'){
+      html=`<p class="ou-instruction">Δημιούργησε <strong>τρία ξεχωριστά αντικείμενα</strong> από την ίδια κλάση. Κάθε πάτημα προσθέτει ένα αντικείμενο με ενδεικτικές τιμές.</p><div class="ou-metric" aria-live="polite">1 κλάση · ${st.created} ${st.created===1?'αντικείμενο':'αντικείμενα'}</div>${scene(n,d.objects.slice(0,st.created))}<div class="ou-controls">${button('create',`${icon('plus')} Δημιουργία ${n}`,true,st.created>=3?'disabled':'')}</div>${st.created?`<details><summary class="cursor-interaction">Ο κώδικας για το τελευταίο αντικείμενο</summary><pre>${esc(`${n} o${st.created} = new ${n}();\n`+d.fields.map((f,i)=>`o${st.created}.${f[0]} = ${fmt(d.objects[st.created-1][i],f[1])};`).join('\n'))}</pre></details>`:''}`;
+    }else if(s.kind==='predict'){
+      const vals=d.objects.slice(0,2).map(v=>v.slice());if(st.tried)vals[0][1]=d.change;
+      html=`<p class="ou-instruction">Τα δύο αντικείμενα δημιουργήθηκαν χωριστά. Θα αλλάξουμε το <code>${d.fields[1][0]}</code> του πρώτου από <strong>${d.objects[0][1]}</strong> σε <strong>${d.change}</strong>.</p>${scene(n,vals,false,st.tried)}<label class="ou-input-label" for="ou-prediction">Ποια τιμή θα έχει το ${d.fields[1][0]} του δεύτερου αντικειμένου;</label><div class="ou-controls"><input id="ou-prediction" type="number" class="ou-input ou-numeric" data-store="prediction" value="${esc(st.prediction??'')}" aria-label="Πρόβλεψη της τιμής του δεύτερου αντικειμένου">${button('predict-check','Δοκιμή πρόβλεψης',true)}</div>`;
+    }else if(s.kind==='codefill'){
+      html=`<p class="ou-instruction">Γράψε τη λέξη που λείπει για να δημιουργηθεί νέο αντικείμενο ${n}. Έπειτα η εικόνα θα δείξει το αποτέλεσμα.</p><pre>${esc(codeClass(n))}</pre><p class="ou-note">Η επόμενη εντολή γράφεται μέσα στη main. Η μεταβλητή <code>item</code> θα αναφέρεται στο νέο αντικείμενο.</p><div class="ou-code-line"><code>${n} item = </code><input id="ou-new-word" class="ou-input ou-code-input" data-store="newWord" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Λέξη κλειδί που δημιουργεί αντικείμενο" value="${esc(st.newWord??'')}" placeholder="λέξη κλειδί"><code> ${n}();</code></div><div class="ou-controls">${button('codefill-check','Έλεγχος εντολής',true)}</div>${st.codeCreated?`<div class="ou-editor-result">${scene(n,[[d.fields[0][1]==='String'?'null':0,0]])}<p class="ou-note">Το νέο αντικείμενο έχει τις προεπιλεγμένες τιμές των πεδίων: null για String και 0 για τους αριθμητικούς τύπους αυτού του παραδείγματος.</p></div>`:''}`;
+    }else if(s.kind==='editor'){
+      if(st.classText===undefined)st.classText=`class ${n} {\n    // Γράψε εδώ τα δύο πεδία\n}`;
+      if(st.mainText===undefined)st.mainText='// Δημιούργησε δύο αντικείμενα με διαφορετικές τιμές';
+      html=`<p class="ou-instruction">Γράψε την κλάση <code>${n}</code> με τα πεδία <code>${d.fields[0][1]} ${d.fields[0][0]}</code> και <code>${d.fields[1][1]} ${d.fields[1][0]}</code>. Δημιούργησε δύο αντικείμενα και δώσε <strong>διαφορετικές τιμές και στα δύο πεδία τους</strong>.</p><label class="ou-input-label" for="ou-class-code">1. Ο ορισμός της κλάσης</label><textarea id="ou-class-code" class="ou-editor" data-store="classText" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off">${esc(st.classText)}</textarea><label class="ou-input-label" for="ou-main-code">2. Οι εντολές μέσα στη main</label><textarea id="ou-main-code" class="ou-editor" data-store="mainText" rows="8" spellcheck="false" autocomplete="off" autocapitalize="off">${esc(st.mainText)}</textarea><div class="ou-controls">${button('editor-check','Έλεγχος άσκησης',true)}${button('hint','Μικρή βοήθεια')}${window.parent!==window?button('run-real','Εκτέλεση Java'):''}</div><details><summary class="cursor-interaction">Τι ελέγχει αυτή η άσκηση;</summary><p>Ελέγχονται η απλή κλάση με τα δύο ζητούμενα πεδία, οι δύο δημιουργίες με new και οι αναθέσεις τιμών. Ο έλεγχος αφορά αυτές τις μορφές εντολών και δεν είναι πλήρης μεταγλωττιστής Java.</p></details><details><summary class="cursor-interaction">Πλήρες πρόγραμμα · Main.java</summary><pre id="ou-full-program"></pre></details>${st.editorObjects?`<div class="ou-editor-result"><h3>Τα αντικείμενα που περιέγραψες</h3>${scene(n,st.editorObjects)}</div>`:''}`;
+    }else if(s.kind==='review'){
+      const src=`class ${n} { }\n\n// Μέσα στη main:\n${n} first = new ${n}();\n${n} second = new ${n}();\n${n} third = new ${n}();\n${n} spare;`;
+      html=`<p class="ou-instruction">Διάβασε το απόσπασμα. Η τελευταία γραμμή δηλώνει μόνο μια μεταβλητή. Συμπλήρωσε πόσες κλάσεις και πόσα αντικείμενα δημιουργούνται στο παράδειγμα.</p><pre>${esc(src)}</pre><div class="ou-input-row"><label class="ou-input-label" for="ou-class-count">Ορισμοί κλάσεων<input id="ou-class-count" class="ou-input ou-numeric" type="number" min="0" data-store="classCount" value="${esc(st.classCount??'')}"></label><label class="ou-input-label" for="ou-object-count">Αντικείμενα<input id="ou-object-count" class="ou-input ou-numeric" type="number" min="0" data-store="objectCount" value="${esc(st.objectCount??'')}"></label></div><div class="ou-controls">${button('review-check','Έλεγχος κατανόησης',true)}</div><label class="ou-input-label" for="ou-reflection">Με δικά σου λόγια: ποια είναι η διαφορά κλάσης και αντικειμένου;</label><textarea id="ou-reflection" class="ou-editor" data-store="reflection" rows="3" placeholder="Γράψε μια σύντομη εξήγηση για τον δικό σου αυτοέλεγχο.">${esc(st.reflection??'')}</textarea><p class="ou-note">Η ελεύθερη εξήγησή σου κρατιέται εδώ για αυτοέλεγχο και δεν βαθμολογείται αυτόματα.</p>${complete.size===20?'<div class="ou-completion">✓ Ολοκλήρωσες και τις 20 μικρές δραστηριότητες.</div>':''}`;
+    }
+    q('#ou-content').innerHTML=html;
+    const full=q('#ou-full-program');if(full)full.textContent=fullProgram(st);
+    updateNav();showFeedback();refreshIcons();persist();
+  }
+  function fullProgram(st){return `${st.classText}\n\npublic class Main {\n    public static void main(String[] args) {\n${st.mainText.split('\n').map(l=>'        '+l).join('\n')}\n    }\n}`;}
+  const forbidden=new Set('abstract assert boolean break byte case catch char class const continue default do double else enum extends final finally float for goto if implements import instanceof int interface long native new package private protected public return short static strictfp super switch synchronized this throw throws transient try void volatile while true false null record var yield String'.split(' '));
+  function lex(source){
+    const tokens=[];let p=0;
+    while(p<source.length){const rest=source.slice(p);let m;if((m=/^\s+/.exec(rest))){p+=m[0].length;continue;}if(rest.startsWith('//')){const end=source.indexOf('\n',p);p=end<0?source.length:end+1;continue;}if(rest.startsWith('/*')){const end=source.indexOf('*/',p+2);if(end<0)throw Error('Το σχόλιο /* πρέπει να κλείνει με */.');p=end+2;continue;}
+      if((m=/^"(?:[^"\\\r\n]|\\["\\nrtbf])*"/.exec(rest))){let value;try{value=JSON.parse(m[0]);}catch{throw Error('Χρησιμοποίησε απλό κείμενο μέσα σε διπλά εισαγωγικά.');}tokens.push({kind:'string',value});p+=m[0].length;continue;}
+      if((m=/^-?\d+(?:\.\d+)?(?:[dD])?/.exec(rest))){if(/^-?0\d/.test(m[0]))throw Error('Σε αυτή την άσκηση γράψε δεκαδικούς αριθμούς χωρίς επιπλέον αρχικά μηδενικά.');const value=Number(m[0].replace(/[dD]$/,''));if(!Number.isFinite(value))throw Error('Η αριθμητική τιμή είναι υπερβολικά μεγάλη.');tokens.push({kind:'number',value,raw:m[0]});p+=m[0].length;continue;}
+      if((m=/^[A-Za-z_$][A-Za-z0-9_$]*/.exec(rest))){tokens.push({kind:'id',value:m[0]});p+=m[0].length;continue;}
+      if('{}();=.'.includes(rest[0])){tokens.push({kind:'punct',value:rest[0]});p++;continue;}
+      throw Error(`Δεν αναγνωρίζεται το σύμβολο «${rest[0]}». Έλεγξε τη σύνταξη και τα εισαγωγικά.`);
+    }return tokens;
+  }
+  function parser(tokens){let at=0;return{peek:()=>tokens[at],done:()=>at===tokens.length,take(v){const t=tokens[at];if(!t||t.value!==v)throw Error(`Αναμενόταν «${v}»${t?' πριν από «'+t.value+'»':''}.`);at++;return t;},id(){const t=tokens[at];if(!t||t.kind!=='id'||forbidden.has(t.value))throw Error('Χρειάζεται έγκυρο όνομα πεδίου ή μεταβλητής.');at++;return t.value;},literal(){const t=tokens[at];if(!t||!['number','string'].includes(t.kind))throw Error('Δώσε αριθμό ή κείμενο μέσα σε διπλά εισαγωγικά.');at++;return t;}};}
+  function checkEditor(n,classSource,mainSource){
+    const d=domains[n],c=parser(lex(classSource)),fields=Object.create(null);
+    c.take('class');c.take(n);c.take('{');
+    while(c.peek()&&c.peek().value!=='}'){const t=c.peek().value;if(!['String','int','double'].includes(t))throw Error('Σε αυτό το παράδειγμα δήλωσε τα δύο πεδία με String, int ή double, χωρίς επιπλέον προσδιοριστές.');c.take(t);const f=c.id();if(Object.hasOwn(fields,f))throw Error(`Το πεδίο ${f} έχει δηλωθεί δύο φορές.`);c.take(';');fields[f]=t;}
+    c.take('}');if(!c.done())throw Error('Στο πρώτο πλαίσιο γράψε μόνο τον ορισμό της ζητούμενης κλάσης.');
+    if(Object.keys(fields).length!==2||d.fields.some(f=>fields[f[0]]!==f[1]))throw Error(`Η ${n} χρειάζεται ακριβώς τα πεδία ${d.fields.map(f=>f[1]+' '+f[0]).join(' και ')}.`);
+    const p=parser(lex(mainSource)),objects=[],variables=Object.create(null);
+    while(!p.done()){
+      if(p.peek().value===n){p.take(n);const v=p.id();if(v===n||Object.hasOwn(variables,v))throw Error(`Χρησιμοποίησε διαφορετικό, πεζό όνομα για τη μεταβλητή ${v}.`);p.take('=');p.take('new');p.take(n);p.take('(');p.take(')');p.take(';');variables[v]=objects.length;objects.push({variable:v,values:Object.fromEntries(d.fields.map(f=>[f[0],f[1]==='String'?null:0])),assigned:new Set()});}
+      else{const v=p.id();if(!Object.hasOwn(variables,v))throw Error(`Δημιούργησε πρώτα το αντικείμενο της μεταβλητής ${v} με new.`);p.take('.');const f=p.id();if(!Object.hasOwn(fields,f))throw Error(`Η κλάση ${n} δεν έχει πεδίο ${f}.`);p.take('=');const value=p.literal();p.take(';');const type=fields[f];if((type==='String'&&value.kind!=='string')||(type!=='String'&&value.kind!=='number')||(type==='int'&&!/^-?\d+$/.test(value.raw??'')))throw Error(`Το ${f} χρειάζεται ${type==='String'?'κείμενο σε διπλά εισαγωγικά':type==='int'?'ακέραιο αριθμό':'αριθμητική τιμή'}.`);if(type==='int'&&(value.value<-2147483648||value.value>2147483647))throw Error('Η τιμή πρέπει να χωρά στον τύπο int.');objects[variables[v]].values[f]=value.value;objects[variables[v]].assigned.add(f);}
+    }
+    if(objects.length!==2)throw Error('Χρειάζονται ακριβώς δύο δημιουργίες αντικειμένων με new.');
+    if(objects.some(o=>d.fields.some(f=>!o.assigned.has(f[0]))))throw Error('Δώσε τιμή και στα δύο πεδία κάθε αντικειμένου.');
+    if(d.fields.some(f=>objects[0].values[f[0]]===objects[1].values[f[0]]))throw Error('Για αυτή την αποστολή δώσε διαφορετική τιμή σε κάθε αντίστοιχο πεδίο των δύο αντικειμένων.');
+    return objects.map(o=>d.fields.map(f=>o.values[f[0]]));
+  }
+  function go(step,example=0){stepIndex=step;exampleIndex=example;render();}
+  root.addEventListener('input',e=>{const store=e.target.dataset.store;if(store){state()[store]=e.target.value;const full=q('#ou-full-program');if(full)full.textContent=fullProgram(state());persist();}});
+  root.addEventListener('change',e=>{const store=e.target.dataset.store;if(store)state()[store]=e.target.value;});
+  root.addEventListener('keydown',e=>{if(e.target.matches('textarea')&&e.key==='Tab'){/* Native tab order is preserved. */}if(e.key==='Enter'&&e.target.matches('input')){const k=cur().kind,actions={predict:'predict-check',codefill:'codefill-check',review:'review-check'};if(actions[k]){e.preventDefault();q(`[data-action="${actions[k]}"]`).click();}}});
+  root.addEventListener('click',e=>{
+    const nav=e.target.closest('[data-step]');if(nav){go(Number(nav.dataset.step));return;}
+    const el=e.target.closest('[data-action]');if(!el)return;
+    const action=el.dataset.action,st=state(),n=name(),d=domains[n];
+    if(action==='intro-done')feedback(true,`Η ${n} είναι το κοινό πρότυπο. Τα δύο συγκεκριμένα παραδείγματα είναι αντικείμενά της, με δικές τους τιμές.`);
+    if(action==='observe'){st.choice=Number(el.dataset.value);feedback(st.choice===0,st.choice===0?'Ίδια ονόματα πεδίων, διαφορετικές τιμές: δύο αντικείμενα της ίδιας κλάσης.':'Οι διαφορετικές τιμές δεν αλλάζουν την κλάση. Σύγκρινε τα ονόματα των πεδίων στα δύο αντικείμενα.');render();}
+    if(action==='field-toggle'){const value=el.dataset.value;st.selected=st.selected.includes(value)?st.selected.filter(v=>v!==value):[...st.selected,value];st.feedback=null;render();}
+    if(action==='fields-check'){const ok=st.selected.length===2&&d.fields.every(f=>st.selected.includes(f[0]));feedback(ok,ok?`Τα ${d.fields[0][0]} και ${d.fields[1][0]} είναι πεδία. Τα αντικείμενα έχουν τα ίδια πεδία, με διαφορετικές τιμές.`:'Επίλεξε τα ονόματα των δύο πεδίων. Ένα συγκεκριμένο κείμενο ή ένας αριθμός είναι τιμή, όχι όνομα πεδίου.');}
+    if(action==='schema-check'){const ok=st.fieldOne===`${d.fields[0][1]} ${d.fields[0][0]};`&&st.fieldTwo===`${d.fields[1][1]} ${d.fields[1][0]};`;feedback(ok,ok?`Περιέγραψες τη δομή της ${n}. Κάθε αντικείμενό της θα έχει αυτά τα πεδία.`:'Εδώ ζητείται πρότυπο χωρίς αρχικές τιμές: διάλεξε τύπο και όνομα πεδίου, χωρίς το σύμβολο =.');}
+    if(action==='sort-select'){st.active=el.dataset.value;st.feedback=null;render();}
+    if(action==='sort-drop'){if(!st.active){feedback(false,'Επίλεξε πρώτα μια κάρτα και μετά την κατηγορία της.',false);return;}st.assignments[st.active]=el.dataset.value;st.active=null;st.feedback=null;render();}
+    if(action==='sort-check'){const ok=st.assignments.template==='class'&&st.assignments.first==='object'&&st.assignments.second==='object';feedback(ok,ok?`Η ${n} είναι το πρότυπο. Οι δύο κάρτες με συγκεκριμένα στοιχεία είναι αντικείμενα της κλάσης.`:'Το γενικό πρότυπο μπαίνει στην «Κλάση». Κάθε κάρτα με συγκεκριμένες τιμές μπαίνει στο «Αντικείμενο». Μπορείς να μετακινήσεις ξανά τις κάρτες.');}
+    if(action==='create'&&st.created<3){st.created++;if(st.created===3)feedback(true,'Δημιούργησες τρία αντικείμενα. Η κλάση παραμένει μία, επειδή το κοινό πρότυπο είναι το ίδιο.');render();}
+    if(action==='predict-check'){st.prediction=q('#ou-prediction').value;if(st.prediction.trim()===''){feedback(false,'Γράψε πρώτα την πρόβλεψή σου.',false);return;}st.tried=true;const ok=Number(st.prediction)===d.objects[1][1];feedback(ok,ok?`Το δεύτερο αντικείμενο κρατά την τιμή ${d.objects[1][1]}. Αλλάξαμε μόνο το πρώτο από τα δύο ξεχωριστά αντικείμενα.`:`Το δεύτερο διατηρεί την τιμή ${d.objects[1][1]}. Τα αντικείμενα δημιουργήθηκαν χωριστά και το καθένα έχει δικές του τιμές.`);render();}
+    if(action==='codefill-check'){st.newWord=q('#ou-new-word').value;const ok=st.newWord.trim()==='new';st.codeCreated=ok;feedback(ok,ok?`Η new δημιουργεί ένα νέο αντικείμενο ${n}. Η μεταβλητή item αναφέρεται σε αυτό.`:'Χρειάζεται η λέξη κλειδί new, με πεζά γράμματα. Η δήλωση μιας μεταβλητής μόνη της δεν δημιουργεί αντικείμενο.');render();}
+    if(action==='hint'){st.hints=(st.hints??0)+1;feedback(null,st.hints===1?`Η κλάση αρχίζει με class ${n}. Κάθε πεδίο γράφεται ως τύπος όνομα; — π.χ. ${d.fields[0][1]} ${d.fields[0][0]};`:`Μέσα στη main: ${n} a = new ${n}(); Έπειτα δώσε τιμές με a.${d.fields[0][0]} = ${fmt(d.objects[0][0],d.fields[0][1])}; Επανάλαβε για το δεύτερο πεδίο και για νέο αντικείμενο b.`,false);}
+    if(action==='run-real'){st.classText=q('#ou-class-code').value;st.mainText=q('#ou-main-code').value;window.parent.postMessage({type:'java-lab-run',title:n+' · Ο δικός σου κώδικας',code:fullProgram(st)},location.origin);}
+    if(action==='editor-check'){st.classText=q('#ou-class-code').value;st.mainText=q('#ou-main-code').value;try{st.editorObjects=checkEditor(n,st.classText,st.mainText);feedback(true,'Ο ορισμός, οι δύο δημιουργίες και οι αναθέσεις συμφωνούν με την αποστολή. Η εικόνα δείχνει τις δικές σου τιμές.');}catch(err){st.editorObjects=null;feedback(false,err.message);}render();}
+    if(action==='review-check'){st.classCount=q('#ou-class-count').value;st.objectCount=q('#ou-object-count').value;const ok=st.classCount.trim()!==''&&st.objectCount.trim()!==''&&Number(st.classCount)===1&&Number(st.objectCount)===3;feedback(ok,ok?'Ένας ορισμός κλάσης και τρεις δημιουργίες με new. Η δήλωση spare δεν δημιουργεί τέταρτο αντικείμενο.':'Μέτρησε χωριστά τον ορισμό class και τις εμφανίσεις new. Η τελευταία γραμμή δηλώνει μόνο μεταβλητή.');render();}
+  });
+  q('#ou-next-example').addEventListener('click',()=>go(stepIndex,1-exampleIndex));
+  q('#ou-prev').addEventListener('click',()=>{if(stepIndex>0)go(stepIndex-1);});
+  q('#ou-next').addEventListener('click',()=>{if(stepIndex<9)go(stepIndex+1);});
+  root.addEventListener('dragstart',e=>{const el=e.target.closest('[data-drag]');if(!el)return;state().active=el.dataset.drag;if(e.dataTransfer){e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',el.dataset.drag);}});
+  root.addEventListener('dragover',e=>{const zone=e.target.closest('[data-zone]');if(zone){e.preventDefault();zone.classList.add('ou-drop-active');}});
+  root.addEventListener('dragleave',e=>{const zone=e.target.closest('[data-zone]');if(zone&&!zone.contains(e.relatedTarget))zone.classList.remove('ou-drop-active');});
+  root.addEventListener('drop',e=>{const zone=e.target.closest('[data-zone]');if(!zone)return;e.preventDefault();const id=e.dataTransfer?.getData('text/plain')||state().active;if(!['template','first','second'].includes(id))return;state().assignments[id]=zone.dataset.zone;state().active=null;state().feedback=null;render();});
+  render();
+})();
+</script>
+<script>
+(()=>{let pending=false;const report=()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;window.parent.postMessage({type:'java-lab-height',height:Math.ceil(document.getElementById('oop-unit-sample').getBoundingClientRect().height)},location.origin)})};new ResizeObserver(report).observe(document.getElementById('oop-unit-sample'));document.addEventListener('click',e=>{if(e.target.closest('[data-step],#ou-next,#ou-prev'))window.parent.postMessage({type:'java-lab-step'},location.origin)});report()})();
+</script></body></html>
